@@ -1,0 +1,67 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# NeaBansProxy — Configuración del plugin de proxy
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Este plugin se instala en el proxy (BungeeCord o Velocity), NO en los backends.
+# Comparte la misma base de datos MySQL que el plugin NeaBans de Paper.
+#
+# ¿Cómo funciona?
+#   1. El jugador intenta conectarse al proxy.
+#   2. NeaBansProxy consulta la BD antes de enviarlo a cualquier servidor backend.
+#   3. Si está baneado → se le muestra el ban-screen y se rechaza la conexión.
+#   4. Si está limpio  → se registra su IP y se le permite continuar.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─── Base de datos ─────────────────────────────────────────────────────────────
+# DEBE coincidir exactamente con la configuración del plugin Paper.
+database:
+  host: "localhost"
+  port: 3306
+  database: "neabans"
+  username: "root"
+  password: "password"
+  # Tamaño del pool HikariCP para el proxy (valores bajos recomendados: 3-8)
+  pool-size: 5
+  # Prefijo de tabla — DEBE ser el mismo que en el plugin Paper
+  table-prefix: "nb_"
+
+# ─── Ajustes generales ─────────────────────────────────────────────────────────
+settings:
+
+  # Enlace de apelación mostrado al final de todos los ban screens
+  appeal-link: "https://discord.gg/YcjMtCPuKH"
+
+  # ── Ban permanente por UUID ──────────────────────────────────────────────────
+  # Marcadores disponibles: {reason} {staff} {date} {appeal}
+  ban-screen-permanent: |
+    &c&l⛔ CUENTA SANCIONADA ⛔
+    &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    &7Razón:    &f{reason}
+    &7Staff:    &f{staff}
+    &7Fecha:    &f{date}
+    &7Duración: &cPermanente
+    &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    &eApela en: &f{appeal}
+
+  # ── Ban temporal por UUID ────────────────────────────────────────────────────
+  # Marcadores disponibles: {reason} {staff} {expire} {remaining} {appeal}
+  ban-screen-temp: |
+    &6&l⏳ CUENTA SUSPENDIDA ⏳
+    &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    &7Razón:    &f{reason}
+    &7Staff:    &f{staff}
+    &7Expira:   &e{expire}
+    &7Restante: &e{remaining}
+    &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    &eApela en: &f{appeal}
+
+  # ── IP ban (permanente o temporal) ──────────────────────────────────────────
+  # Marcadores disponibles: {reason} {staff} {appeal}
+  ip-ban-screen: |
+    &c&l🚫 IP BANEADA 🚫
+    &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    &7Razón:  &f{reason}
+    &7Staff:  &f{staff}
+    &8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    &eApela en: &f{appeal}

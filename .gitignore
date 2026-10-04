@@ -1,0 +1,29 @@
+# Logs & Crash Dumps
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# IDEs & Editor files
+.idea/
+*.iml
+.vscode/
+.vs/
+*.suo
+*.user
+nul
+
+# OS Generated
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Java & Build Output
+target/
+build/
+out/
+bin/
+.gradle/
+*.class
+*.jar
+!src/main/resources/*.jar
+!libs/*.jar

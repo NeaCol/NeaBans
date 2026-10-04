@@ -1,0 +1,166 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#          NeaBans — Language: English
+#          Created by Nea#9654
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+prefix: "&#FF4D4D&lNeaBans &#4E5C5E» &r"
+
+general:
+  no-permission: "&#FF4D4D✖ You don't have permission to use this command."
+  only-players: "&#FF4D4D✖ Only players can use this command."
+  player-not-found: "&#FF4D4D✖ Player &f{player} &#FF4D4Dis not online or doesn't exist in the database."
+  console-name: "Console"
+  never: "Never"
+  permanent: "Permanent"
+  unknown: "Unknown"
+  reload-success: "&#2ECC71✔ Configuration and messages reloaded successfully."
+  invalid-duration: "&#FF4D4D✖ Invalid duration. Use: 10s, 5m, 2h, 7d, 2w, 1mo"
+  invalid-args: "&#FF4D4D✖ Invalid arguments. Usage: {usage}"
+  error: "&#FF4D4D✖ An internal error occurred. Check the console."
+
+# ─── BAN ─────────────────────────────────────────────
+ban:
+  usage: "&#808080Usage: &#FFD700/ban <player> [reason]"
+  already-banned: "&#FF4D4D✖ &f{player} &#FF4D4Dis already banned."
+  success: "&#2ECC71✔ You have permanently banned &f{player}&#2ECC71. Reason: &f{reason}"
+  broadcast: "&#FF4D4D⛔ &f{player} &#7F8C8Dhas been banned by &#FF4D4D{staff}&#7F8C8D. Reason: &f{reason}"
+  broadcast-temp: "&#FF8C00⏳ &f{player} &#7F8C8Dhas been temporarily banned by &#FF8C00{staff}&#7F8C8D. Duration: &f{duration} | Reason: &f{reason}"
+  broadcast-unban: "&#2ECC71✔ &f{player} &#7F8C8Dhas been unbanned by &#2ECC71{staff}&#7F8C8D."
+
+# ─── BAN SCREEN ──────────────────────────────────────
+ban-screen:
+  permanent: "&#FF4D4D&l⛔ ACCOUNT SANCTIONED ⛔\n\n&#7F8C8DReason: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DServer: &f{server}\n&#7F8C8DDate: &f{date}\n&#7F8C8DDuration: &cPermanent\n\n&#FFD700Want to appeal?\n&fhttps://discord.gg/YcjMtCPuKH"
+  temporary: "&#FF8C00&l⏳ ACCOUNT SUSPENDED ⏳\n\n&#7F8C8DReason: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DServer: &f{server}\n&#7F8C8DDate: &f{date}\n&#7F8C8DExpires: &e{expire}\n&#7F8C8DTime remaining: &e{remaining}\n\n&#FFD700Want to appeal?\n&f{appeal}"
+
+# ─── MUTE ─────────────────────────────────────────────
+mute:
+  usage: "&#808080Usage: &#FFD700/mute <player> [reason]"
+  already-muted: "&#FF4D4D✖ &f{player} &#FF4D4Dis already muted."
+  success: "&#2ECC71✔ You have muted &f{player}&7. Reason: &f{reason}"
+  broadcast: "&#FFD700🔇 &f{player} &#7F8C8Dhas been muted by &#FFD700{staff}&#7F8C8D. Reason: &f{reason} | Duration: &f{duration}"
+  broadcast-unmute: "&#2ECC71✔ &f{player} &#7F8C8Dhas been unmuted by &#2ECC71{staff}&#7F8C8D."
+  removed: "&#2ECC71✔ You have unmuted &f{player}&7."
+  not-muted: "&#FF4D4D✖ &f{player} &#FF4D4Dis not currently muted."
+  notify-target: "&#FFD700⚠ You have been muted. Reason: &f{reason} &#FFD700| Duration: &f{remaining}"
+  removed-notify: "&#2ECC71✔ Your mute has been removed. You can speak again."
+  blocked: "&#FF4D4D✖ You are muted. Time remaining: &f{remaining} &#808080| Reason: {reason}"
+
+# ─── KICK ─────────────────────────────────────────────
+kick:
+  usage: "&#808080Usage: &#FFD700/kick <player> [reason]"
+  not-online: "&#FF4D4D✖ &f{player} &#FF4D4Dis not online."
+  success: "&#2ECC71✔ You have kicked &f{player}&7. Reason: &f{reason}"
+  broadcast: "&#FF8C00⚡ &f{player} &#7F8C8Dhas been kicked by &#FF8C00{staff}&#7F8C8D. Reason: &f{reason}"
+  screen: "&#FF8C00&l⚡ YOU HAVE BEEN KICKED ⚡\n\n&#7F8C8DReason: &f{reason}\n&#7F8C8DStaff: &f{staff}\n\n&#7F8C8DYou can reconnect.\n&#FFD700Discord: &f{appeal}"
+
+# ─── WARN ─────────────────────────────────────────────
+warn:
+  usage: "&#808080Usage: &#FFD700/warn <player> [reason]"
+  success: "&#2ECC71✔ You have warned &f{player}&7. Reason: &f{reason}"
+  broadcast: "&#FFD700⚠ &f{player} &#7F8C8Dhas received a warning from &#FFD700{staff}&#7F8C8D. Reason: &f{reason}"
+  notify: "&#FFD700⚠ You have received warning #&f{count}&#FFD700. Reason: &f{reason}"
+
+# ─── UNBAN ────────────────────────────────────────────
+unban:
+  usage: "&#808080Usage: &#FFD700/unban <player>"
+  success: "&#2ECC71✔ You have unbanned &f{player}&7."
+  not-banned: "&#FF4D4D✖ &f{player} &#FF4D4Dis not currently banned."
+  broadcast: "&#2ECC71✔ &f{player} &#7F8C8Dhas been unbanned by &#2ECC71{staff}&#7F8C8D."
+
+# ─── UNMUTE ───────────────────────────────────────────
+unmute:
+  usage: "&#808080Usage: &#FFD700/unmute <player>"
+  success: "&#2ECC71✔ You have unmuted &f{player}&7."
+  not-muted: "&#FF4D4D✖ &f{player} &#FF4D4Dis not currently muted."
+  broadcast: "&#2ECC71✔ &f{player} &#7F8C8Dhas been unmuted by &#2ECC71{staff}&#7F8C8D."
+  notify-target: "&#2ECC71✔ You have been unmuted. You can speak again."
+
+# ─── HISTORY ──────────────────────────────────────────
+history:
+  usage: "&#808080Usage: &#FFD700/history <player> [page]"
+  invalid-page: "&#FF4D4D✖ Invalid page number."
+  header: "&#4E5C5E&m         &r &#FFD700History of &f{player} &7(Page {page}/{total}) &#4E5C5E&m         &r"
+  entry: " &#FF4D4D[{type}] &7Reason: &f{reason} &8| &7Staff: &f{staff} &8| &7{duration} &8| &7{date}"
+  footer: "&#4E5C5E&m                                               &r"
+  empty: "&#808080No punishments found for &f{player}&7."
+  active-label: "&#FF4D4D● Active"
+  inactive-label: "&#2ECC71● Inactive"
+
+# ─── GUI ──────────────────────────────────────────────
+gui:
+  punisher-title: "&#4E5C5E⚖ Punishments ➟ &#FF4D4D{player}"
+  category-title: "&#4E5C5E⚖ {category}"
+  history-title: "&#4E5C5E📋 History ➟ &#FF4D4D{player}"
+
+  close-button-name: "&#FF4D4D✖ Close Menu"
+  close-button-lore:
+    - "&#808080Click to exit the inventory"
+
+  next-page-name: "&#FFD700Next Page ➟"
+  prev-page-name: "&#FFD700⬅ Previous Page"
+  back-name: "&#FFD700⬅ Back to main menu"
+  history-button-name: "&#AED6F1📋 View History"
+
+  player-info-name: "&#FFD700✦ {player}"
+  player-info-lore:
+    - "&#808080UUID: &7{uuid}"
+    - ""
+    - "&#808080Total punishments: &f{total}"
+    - "&#808080Active bans: &f{bans}"
+    - "&#808080Active warns: &f{warns}"
+    - ""
+    - "&#FFD700Click to view full history"
+
+  category-apply-lore:
+    - ""
+    - "&#FFD700➟ Click to view punishment levels"
+
+  punishment-applied: "&#2ECC71✔ Punishment applied to &f{player} &#2ECC71successfully."
+
+# ─── MAIN COMMAND ─────────────────────────────────────
+main:
+  reload-success: "&#2ECC71✔ Config and lang reloaded. v{version}"
+  clearhistory-usage: "&#808080Usage: &#FFD700/neabans clearhistory <player>"
+  clearhistory-success: "&#2ECC71✔ History of &f{player} &#2ECC71cleared successfully."
+  help-header:
+    - "&#4E5C5E&m         &r &#FF4D4D&lNeaBans &7v{version} &#4E5C5E&m         &r"
+    - " &#FFD700/ban &f<player> [reason] &#808080— Permanent ban"
+    - " &#FFD700/tempban &f<player> <dur> [reason] &#808080— Temporary ban"
+    - " &#FFD700/unban &f<player> &#808080— Unban"
+    - " &#FFD700/ipban &f<player|ip> [reason] &#808080— Permanent IP-Ban"
+    - " &#FFD700/iptempban &f<player|ip> <dur> &#808080— Temporary IP-Ban"
+    - " &#FFD700/ipunban &f<ip> &#808080— Remove IP-Ban"
+    - " &#FFD700/mute &f<player> [reason] &#808080— Permanent mute"
+    - " &#FFD700/tempmute &f<player> <dur> [reason] &#808080— Temporary mute"
+    - " &#FFD700/unmute &f<player> &#808080— Unmute"
+    - " &#FFD700/kick &f<player> [reason] &#808080— Kick"
+    - " &#FFD700/warn &f<player> [reason] &#808080— Warn"
+    - " &#FFD700/lookup &f<player> &#808080— Quick info"
+    - " &#FFD700/history &f<player> [page] &#808080— View history"
+    - " &#FFD700/nb &f<player> &#808080— Open punishment menu"
+    - " &#FFD700/nb web &#808080— Web panel URL"
+    - " &#FFD700/nb reload &#808080— Reload configuration"
+    - "&#4E5C5E&m                                    &r"
+    - " &#808080Created by &#00FBFFNea#9654"
+
+# ─── NETWORK ──────────────────────────────────────────
+network:
+  ban-broadcast: "&#FF4D4D⛔ [NETWORK] &f{player} &#7F8C8Dhas been banned on &f{server}&#7F8C8D."
+  unban-broadcast: "&#2ECC71✔ [NETWORK] &f{player} &#7F8C8Dhas been unbanned on &f{server}&#7F8C8D."
+
+# ─── IP-BAN ───────────────────────────────────────────────
+ipban:
+  usage: "&#808080Usage: &#FFD700/ipban <player|ip> [reason]"
+  already-banned: "&#FF4D4D✖ IP &f{ip} &#FF4D4Dis already banned."
+  success: "&#2ECC71✔ IP &f{target} &#2ECC71banned. Reason: &f{reason}"
+  removed: "&#2ECC71✔ IP-ban of &f{ip} &#2ECC71removed."
+  not-banned: "&#FF4D4D✖ IP &f{ip} &#FF4D4Ddoes not have an active ban."
+  no-ip: "&#FF4D4D✖ Could not find IP for &f{player}&#FF4D4D. Have they joined the server?"
+  broadcast: "&#CC0000🚫 &f{target} &#7F8C8Dhas been IP-banned by &#CC0000{staff}&#7F8C8D. Reason: &f{reason}"
+  broadcast-temp: "&#FF6600🚫 &f{target} &#7F8C8Dhas been temporarily IP-banned by &#FF6600{staff}&#7F8C8D. Duration: &f{duration}"
+  broadcast-unban: "&#2ECC71✔ IP &f{ip} &#7F8C8Dunbanned by &#2ECC71{staff}&#7F8C8D."
+  screen-permanent: "&#CC0000&l🚫 IP BANNED 🚫\n\n&#7F8C8DReason: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DDate: &f{date}\n\n&#FFD700Want to appeal?\n&f{appeal}"
+  screen-temporary: "&#FF6600&l⏳ IP SUSPENDED ⏳\n\n&#7F8C8DReason: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DExpires: &e{expire}\n\n&#FFD700Want to appeal?\n&f{appeal}"
+
+# ─── LOOKUP ───────────────────────────────────────────────
+lookup:
+  usage: "&#808080Usage: &#FFD700/lookup <player>"

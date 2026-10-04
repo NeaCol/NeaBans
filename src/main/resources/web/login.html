@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeaBans — Login</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f1a;
+    color: #e0e0f0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-box {
+    background: #1a1a2e;
+    border: 1px solid #2a2a45;
+    border-radius: 16px;
+    padding: 40px 48px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .logo .icon { font-size: 40px; margin-bottom: 8px; }
+  .logo h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e94560;
+    letter-spacing: 2px;
+  }
+  .logo p { font-size: 13px; color: #606080; margin-top: 4px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 12px; font-weight: 600; color: #9090b0; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 7px; }
+  .field input {
+    width: 100%;
+    background: #0f0f1a;
+    border: 1px solid #2a2a45;
+    color: #e0e0f0;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .field input:focus { border-color: #e94560; }
+  .btn-login {
+    width: 100%;
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: opacity .2s;
+    margin-top: 8px;
+  }
+  .btn-login:hover { opacity: .88; }
+  .btn-login:disabled { opacity: .5; cursor: not-allowed; }
+  .error-msg {
+    background: rgba(233,69,96,.15);
+    border: 1px solid rgba(233,69,96,.4);
+    color: #e94560;
+    padding: 10px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    margin-top: 14px;
+    display: none;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 12px;
+    color: #404060;
+  }
+  .footer a { color: #606080; text-decoration: none; }
+  .footer a:hover { color: #e94560; }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <div class="logo">
+    <div class="icon">⚡</div>
+    <h1>NeaBans</h1>
+    <p>Admin Panel</p>
+  </div>
+
+  <div class="field">
+    <label>Username</label>
+    <input type="text" id="username" placeholder="Enter username" autocomplete="username" onkeydown="if(event.key==='Enter')login()">
+  </div>
+
+  <div class="field">
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')login()">
+  </div>
+
+  <button class="btn-login" id="loginBtn" onclick="login()">LOGIN</button>
+  <div class="error-msg" id="error"></div>
+
+  <div class="footer">
+    NeaBans v2.0 &nbsp;|&nbsp; <a href="https://discord.gg/YcjMtCPuKH" target="_blank">Discord</a>
+    &nbsp;|&nbsp; by Nea#9654
+  </div>
+</div>
+
+<script>
+// Redirect if already logged in
+if (localStorage.getItem('nb_token')) {
+  location.href = 'index.html';
+}
+
+async function login() {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value;
+  const btn = document.getElementById('loginBtn');
+  const err = document.getElementById('error');
+
+  if (!username || !password) {
+    showError('Please enter username and password.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Signing in...';
+  err.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await res.json();
+
+    if (data.token) {
+      localStorage.setItem('nb_token', data.token);
+      localStorage.setItem('nb_user', JSON.stringify({
+        username: data.username,
+        isAdmin: data.isAdmin,
+        permissions: data.permissions
+      }));
+      location.href = 'index.html';
+    } else {
+      showError(data.error || 'Invalid credentials.');
+    }
+  } catch (e) {
+    showError('Could not connect to the server. Is NeaBans running?');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'LOGIN';
+  }
+}
+
+function showError(msg) {
+  const err = document.getElementById('error');
+  err.textContent = msg;
+  err.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

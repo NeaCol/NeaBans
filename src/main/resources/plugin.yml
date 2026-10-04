@@ -1,0 +1,184 @@
+name: NeaBans
+version: 2.0.0
+main: me.nea.neabans.NeaBans
+api-version: "1.21"
+author: Nea#9654
+description: |-
+  Sistema de sanciones completo con GUI, base de datos, panel web y soporte proxy.
+  Ideal para redes de servidores grandes.
+website: https://discord.gg/YcjMtCPuKH
+commands:
+  neabans:
+    description: Comando principal de NeaBans (abre GUI de sanciones)
+    aliases: [nb, neaf]
+    usage: /<command> <jugador|reload|help|info|editor|clearhistory>
+    permission: neabans.use
+  ban:
+    description: Banea a un jugador permanentemente
+    usage: /<command> <jugador> [razón]
+    permission: neabans.ban
+  tempban:
+    description: Banea a un jugador temporalmente
+    usage: /<command> <jugador> <duración> [razón]
+    permission: neabans.tempban
+  unban:
+    description: Desbanea a un jugador
+    usage: /<command> <jugador>
+    permission: neabans.unban
+  mute:
+    description: Mutea a un jugador permanentemente
+    usage: /<command> <jugador> [razón]
+    permission: neabans.mute
+  tempmute:
+    description: Mutea a un jugador temporalmente
+    usage: /<command> <jugador> <duración> [razón]
+    permission: neabans.tempmute
+  unmute:
+    description: Desmutea a un jugador
+    usage: /<command> <jugador>
+    permission: neabans.unmute
+  kick:
+    description: Expulsa a un jugador del servidor
+    usage: /<command> <jugador> [razón]
+    permission: neabans.kick
+  warn:
+    description: Advierte a un jugador
+    usage: /<command> <jugador> [razón]
+    permission: neabans.warn
+  history:
+    description: Ver el historial de sanciones de un jugador
+    usage: /<command> <jugador> [página]
+    permission: neabans.history
+  ipban:
+    description: Banea una IP permanentemente
+    usage: /<command> <jugador|ip> [razón]
+    permission: neabans.ipban
+  iptempban:
+    description: Banea una IP temporalmente
+    usage: /<command> <jugador|ip> <duración> [razón]
+    permission: neabans.iptempban
+  ipunban:
+    description: Elimina el IP-ban de una dirección
+    usage: /<command> <ip>
+    permission: neabans.ipunban
+  lookup:
+    description: Ver info rápida de un jugador en el chat
+    usage: /<command> <jugador>
+    aliases: [check]
+    permission: neabans.lookup
+
+permissions:
+  neabans.*:
+    description: Acceso completo a NeaBans
+    default: op
+    children:
+      neabans.use: true
+      neabans.ban: true
+      neabans.tempban: true
+      neabans.unban: true
+      neabans.mute: true
+      neabans.tempmute: true
+      neabans.unmute: true
+      neabans.kick: true
+      neabans.warn: true
+      neabans.history: true
+      neabans.ipban: true
+      neabans.iptempban: true
+      neabans.ipunban: true
+      neabans.lookup: true
+      neabans.lookup.ip: true
+      neabans.reload: true
+      neabans.clearhistory: true
+      neabans.staff.notify: true
+
+  neabans.use:
+    description: Permite abrir la GUI de sanciones
+    default: op
+
+  neabans.ban:
+    description: Permite banear jugadores
+    default: op
+
+  neabans.tempban:
+    description: Permite banear jugadores temporalmente
+    default: op
+
+  neabans.unban:
+    description: Permite desbanear jugadores
+    default: op
+
+  neabans.mute:
+    description: Permite mutear jugadores
+    default: op
+
+  neabans.tempmute:
+    description: Permite mutear jugadores temporalmente
+    default: op
+
+  neabans.unmute:
+    description: Permite desmutear jugadores
+    default: op
+
+  neabans.kick:
+    description: Permite expulsar jugadores
+    default: op
+
+  neabans.warn:
+    description: Permite advertir a jugadores
+    default: op
+
+  neabans.history:
+    description: Permite ver el historial de sanciones
+    default: op
+
+  neabans.ipban:
+    description: Permite banear IPs permanentemente
+    default: op
+
+  neabans.iptempban:
+    description: Permite banear IPs temporalmente
+    default: op
+
+  neabans.ipunban:
+    description: Permite eliminar IP-bans
+    default: op
+
+  neabans.lookup:
+    description: Permite ver info rápida de un jugador
+    default: op
+
+  neabans.lookup.ip:
+    description: Permite ver la IP de un jugador en /lookup
+    default: op
+
+  neabans.reload:
+    description: Permite recargar la configuración del plugin
+    default: op
+
+  neabans.clearhistory:
+    description: Permite borrar el historial de sanciones de un jugador
+    default: op
+
+  neabans.staff.notify:
+    description: Recibe notificaciones de sanciones aplicadas
+    default: op
+
+  neabans.bypass.ban:
+    description: No puede ser baneado mediante NeaBans
+    default: false
+
+  neabans.bypass.mute:
+    description: No puede ser muteado mediante NeaBans
+    default: false
+
+  neabans.bypass.kick:
+    description: No puede ser expulsado mediante NeaBans
+    default: false
+
+  neabans.bypass.warn:
+    description: No puede recibir advertencias mediante NeaBans
+    default: false
+
+  neabans.bypass.ipban:
+    description: No puede ser IP-baneado mediante NeaBans
+    default: false

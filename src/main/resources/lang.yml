@@ -1,0 +1,247 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#   NeaBans · lang.yml  —  Mensajes en Español
+#   Todos los textos que el plugin muestra en el servidor.
+#   Colores: &#FF4D4D rojo  |  &#FFD700 dorado  |  &#2ECC71 verde
+#            &#4E5C5E gris oscuro  |  &#808080 gris  |  &#AED6F1 azul claro
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Prefijo que aparece antes de cada mensaje del plugin
+prefix: "&#FF4D4D&lNeaBans &#4E5C5E» &r"
+
+# ──────────────────────────────────────────────────────────
+#  MENSAJES GENERALES
+# ──────────────────────────────────────────────────────────
+general:
+  no-permission: "&#FF4D4D✖ No tienes permisos para ejecutar este comando."
+  only-players: "&#FF4D4D✖ Este comando solo puede usarlo un jugador."
+  player-not-found: "&#FF4D4D✖ El jugador &f{player} &#FF4D4Dno está en línea o no existe."
+  console-name: "Consola"
+  never: "Nunca"
+  permanent: "Permanente"
+  unknown: "Desconocido"
+  reload-success: "&#2ECC71✔ Configuración y mensajes recargados correctamente."
+  invalid-duration: "&#FF4D4D✖ La duración &f{input} &#FF4D4Des inválida. Ejemplos: &f10s, 5m, 2h, 7d, 2w, 1mo"
+  invalid-args: "&#FF4D4D✖ Uso incorrecto. Escribe &f/neabans &7para ver la ayuda."
+  self-punish: "&#FF4D4D✖ No puedes sancionarte a ti mismo."
+  higher-rank: "&#FF4D4D✖ No puedes sancionar a un jugador con mayor rango que tú."
+  database-error: "&#FF4D4D⚠ Error en la base de datos. Contacta con un administrador."
+
+# ──────────────────────────────────────────────────────────
+#  BANS
+# ──────────────────────────────────────────────────────────
+ban:
+  # Al aplicar un ban permanente
+  success: "&#FF4D4D⛔ Has baneado permanentemente a &f{player}&7."
+  # Al aplicar un ban temporal
+  success-temp: "&#FF4D4D⏳ Has baneado temporalmente a &f{player} &#7F8C8Dpor &f{duration}&7."
+  # Si el jugador ya estaba baneado
+  already-banned: "&#FF4D4D✖ El jugador &f{player} &#FF4D4Dya tiene un ban activo."
+  # Al desbanear
+  removed: "&#2ECC71✔ Has desbaneado a &f{player}&7. La sanción ha sido levantada."
+  # Si no estaba baneado
+  not-banned: "&#FF4D4D✖ El jugador &f{player} &#FF4D4Dno tiene ningún ban activo."
+  # Anuncio en el chat al banear (permanente)
+  broadcast: "&#FF4D4D⛔ &f{player} &#7F8C8Dha sido &cbaneado permanentemente &#7F8C8Dpor &#FF4D4D{staff}&7. Razón: &f{reason}"
+  # Anuncio en el chat al banear (temporal)
+  broadcast-temp: "&#FF4D4D⏳ &f{player} &#7F8C8Dha sido &ebaneado temporalmente &#7F8C8Dpor &#FFD700{staff} &#7F8C8Ddurante &f{duration}&7. Razón: &f{reason}"
+  # Anuncio en el chat al desbanear
+  broadcast-unban: "&#2ECC71✔ &f{player} &#7F8C8Dha sido &adescaneado &#7F8C8Dpor &#2ECC71{staff}&7."
+
+# ──────────────────────────────────────────────────────────
+#  PANTALLA DE BAN (kick message al intentar entrar)
+# ──────────────────────────────────────────────────────────
+ban-screen:
+  permanent: "&#FF4D4D&l⛔ CUENTA SANCIONADA ⛔\n\n&#7F8C8DRazón: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DServidor: &f{server}\n&#7F8C8DFecha: &f{date}\n&#7F8C8DDuración: &cPermanente\n\n&#FFD700¿Quieres apelar?\n&fhttps://discord.gg/YcjMtCPuKH"
+  temporary: "&#FF4D4D&l⏳ CUENTA SUSPENDIDA ⏳\n\n&#7F8C8DRazón: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DServidor: &f{server}\n&#7F8C8DFecha: &f{date}\n&#7F8C8DExpira: &e{expire}\n&#7F8C8DTiempo restante: &e{remaining}\n\n&#FFD700¿Quieres apelar?\n&fhttps://discord.gg/YcjMtCPuKH"
+
+# ──────────────────────────────────────────────────────────
+#  MUTES
+# ──────────────────────────────────────────────────────────
+mute:
+  # Al silenciar permanentemente
+  success: "&#FF4D4D🔇 Has silenciado permanentemente a &f{player}&7."
+  # Al silenciar temporalmente
+  success-temp: "&#FF4D4D🔇 Has silenciado a &f{player} &#7F8C8Dpor &f{duration}&7."
+  # Si ya estaba silenciado
+  already-muted: "&#FF4D4D✖ El jugador &f{player} &#FF4D4Dya tiene un mute activo."
+  # Al quitar el mute
+  removed: "&#2ECC71🔊 Has quitado el silencio a &f{player}&7."
+  # Si no tenía mute
+  not-muted: "&#FF4D4D✖ El jugador &f{player} &#FF4D4Dno tiene ningún mute activo."
+  # Mensaje que ve el jugador silenciado al intentar hablar
+  blocked: "&#FF4D4D✖ Estás silenciado. Tiempo restante: &f{remaining}"
+  # Anuncio (permanente)
+  broadcast: "&#FF4D4D🔇 &f{player} &#7F8C8Dha sido &csilenciado permanentemente &#7F8C8Dpor &#FF4D4D{staff}&7. Razón: &f{reason}"
+  # Anuncio (temporal)
+  broadcast-temp: "&#FF4D4D🔇 &f{player} &#7F8C8Dha sido &esilenciado &#7F8C8Dpor &#FFD700{staff} &#7F8C8Ddurante &f{duration}&7. Razón: &f{reason}"
+  # Anuncio al quitar mute
+  broadcast-unmute: "&#2ECC71🔊 &f{player} &#7F8C8Dha sido &adessilenciado &#7F8C8Dpor &#2ECC71{staff}&7."
+  # Notificación al propio jugador cuando expira su mute
+  expired: "&#2ECC71🔊 Tu silencio ha expirado. Ya puedes hablar con normalidad."
+
+# ──────────────────────────────────────────────────────────
+#  KICKS
+# ──────────────────────────────────────────────────────────
+kick:
+  # Confirmación al ejecutor
+  success: "&#FF8C00⚡ Has expulsado a &f{player} &#7F8C8Dcon razón: &f{reason}&7."
+  # Anuncio en el chat
+  broadcast: "&#FF8C00⚡ &f{player} &#7F8C8Dha sido &eexpulsado &#7F8C8Dpor &#FF8C00{staff}&7. Razón: &f{reason}"
+  # Pantalla que ve el jugador expulsado
+  screen: "&#FF8C00&l⚡ HAS SIDO EXPULSADO ⚡\n\n&#7F8C8DRazón: &f{reason}\n&#7F8C8DStaff: &f{staff}\n&#7F8C8DServidor: &f{server}\n\n&#7F8C8DPuedes volver a conectarte cuando quieras.\n&#FFD700Discord: &fhttps://discord.gg/YcjMtCPuKH"
+
+# ──────────────────────────────────────────────────────────
+#  WARNS (advertencias)
+# ──────────────────────────────────────────────────────────
+warn:
+  # Confirmación al ejecutor
+  success: "&#FFD700⚠ Has advertido a &f{player}&7. Advertencia #&f{count}&7."
+  # Anuncio en el chat
+  broadcast: "&#FFD700⚠ &f{player} &#7F8C8Dha recibido una &eadvertencia &#7F8C8Dde &#FFD700{staff}&7. Razón: &f{reason} &8(#{count})"
+  # Notificación al jugador que recibe el warn
+  notify: "&#FFD700⚠ Has recibido una advertencia: &f{reason} &7(Advertencia #&f{count}&7)"
+  # Aviso cuando llega al máximo de warns
+  max-reached: "&#FF4D4D⚠ &f{player} &#FF4D4Dha alcanzado el máximo de advertencias &8({count})&7. Se aplicará la acción automática."
+  # Al quitar un warn
+  removed: "&#2ECC71✔ Has quitado la advertencia &f#{id} &#7F8C8Dde &f{player}&7."
+  # Si el warn no existe
+  not-found: "&#FF4D4D✖ No se encontró la advertencia con ID &f#{id}&7."
+
+# ──────────────────────────────────────────────────────────
+#  HISTORIAL
+# ──────────────────────────────────────────────────────────
+history:
+  header: "&#4E5C5E&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&r &#FFD700Historial de &f{player} &#4E5C5E&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  entry: "  &#808080#&f{id} &#4E5C5E| &#FFD700{type} &#4E5C5E| &#7F8C8DRazón: &f{reason} &#4E5C5E| &#7F8C8DStaff: &f{staff} &#4E5C5E| &#7F8C8DFecha: &f{date} &#4E5C5E| {status}"
+  empty: "  &#808080Este jugador no tiene sanciones registradas."
+  footer: "&#4E5C5E&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  # Etiquetas de estado
+  status-active: "&#FF4D4D● Activo"
+  status-expired: "&#808080● Expirado"
+  status-removed: "&#2ECC71● Revocado"
+  # Tipos de sanción formateados
+  type-ban: "&#FF4D4DBan"
+  type-tempban: "&#FF8C00TempBan"
+  type-mute: "&#FFD700Mute"
+  type-tempmute: "&#FFD700TempMute"
+  type-kick: "&#AED6F1Kick"
+  type-warn: "&#FFD700Warn"
+
+# ──────────────────────────────────────────────────────────
+#  GUI (menús de inventario)
+# ──────────────────────────────────────────────────────────
+gui:
+  # Títulos de los menús
+  punisher-title: "&#4E5C5E⚖ Sanciones ➟ &#FF4D4D{player}"
+  category-title: "&#4E5C5E{category}"
+  history-title: "&#4E5C5E📋 Historial ➟ &#FF4D4D{player}"
+  confirm-title: "&#FF4D4D⚠ Confirmar sanción"
+
+  # ── Botones de navegación ──
+  close-button-name: "&#FF4D4D✖ Cerrar Menú"
+  close-button-lore:
+    - "&#808080Click para cerrar este menú."
+
+  next-page-name: "&#FFD700Siguiente Página ➟"
+  next-page-lore:
+    - "&#808080Página &f{current} &#808080de &f{total}"
+    - "&#808080Click para avanzar."
+
+  prev-page-name: "&#FFD700⬅ Página Anterior"
+  prev-page-lore:
+    - "&#808080Página &f{current} &#808080de &f{total}"
+    - "&#808080Click para retroceder."
+
+  back-name: "&#FFD700⬅ Volver"
+  back-lore:
+    - "&#808080Click para volver al menú anterior."
+
+  history-button-name: "&#AED6F1📋 Ver Historial"
+  history-button-lore:
+    - "&#808080Consulta todas las sanciones"
+    - "&#808080registradas de este jugador."
+    - ""
+    - "&#FFD700Click para abrir el historial."
+
+  # ── Información del jugador (slot de cabeza) ──
+  player-info-name: "&#FFD700{player}"
+  player-info-lore:
+    - "&#808080UUID: &7{uuid}"
+    - ""
+    - "&#808080Sanciones totales: &f{total}"
+    - "&#808080  &#FF4D4D● Bans activos: &f{bans}"
+    - "&#808080  &#FFD700● Warns activos: &f{warns}"
+    - "&#808080  &#FF4D4D🔇 Mutes activos: &f{mutes}"
+    - ""
+    - "&#FFD700Click para ver el historial completo."
+
+  # ── Ítem de categoría (en el menú principal) ──
+  category-apply-lore:
+    - ""
+    - "&#FFD700➟ Click para ver los niveles de sanción."
+
+  # ── Ítems de nivel de sanción ──
+  level-apply-name: "&#2ECC71✔ Aplicar Sanción"
+  level-apply-lore:
+    - "&#808080Click para aplicar esta sanción"
+    - "&#808080al jugador &f{player}&8."
+
+  # ── Confirmación ──
+  confirm-yes-name: "&#2ECC71✔ Confirmar"
+  confirm-yes-lore:
+    - "&#2ECC71Click para confirmar la sanción."
+  confirm-no-name: "&#FF4D4D✖ Cancelar"
+  confirm-no-lore:
+    - "&#FF4D4DClick para cancelar la operación."
+  punishment-applied: "&#2ECC71✔ Sanción aplicada a &f{player} &#7F8C8Dcorrectamente."
+  punishment-cancelled: "&#808080✖ Sanción cancelada."
+
+  # ── Entradas del historial en el GUI ──
+  history-entry-name: "&#FFD700{type} &8#&7{id}"
+  history-entry-lore:
+    - "&#808080Razón:    &f{reason}"
+    - "&#808080Staff:    &f{staff}"
+    - "&#808080Duración: &f{duration}"
+    - "&#808080Fecha:    &f{date}"
+    - "&#808080Estado:   {status}"
+    - ""
+    - "&#808080Click derecho para revocar."
+
+  # ── Relleno (item decorativo) ──
+  filler-name: " "
+
+  # ── Menú vacío ──
+  no-history: "&#808080Este jugador no tiene sanciones registradas."
+
+# ──────────────────────────────────────────────────────────
+#  RED / NETWORK
+# ──────────────────────────────────────────────────────────
+network:
+  ban-broadcast: "&#FF4D4D⛔ &f{player} &#7F8C8Dha sido baneado en la red por &#FF4D4D{staff}&7."
+  unban-broadcast: "&#2ECC71✔ &f{player} &#7F8C8Dha sido desbaneado de la red por &#2ECC71{staff}&7."
+  mute-broadcast: "&#FFD700🔇 &f{player} &#7F8C8Dha sido silenciado en la red por &#FFD700{staff}&7."
+  kick-all-servers: true
+  sync-error: "&#FF4D4D⚠ Error al sincronizar la sanción en la red. Verifica la conexión."
+
+# ──────────────────────────────────────────────────────────
+#  AYUDA
+# ──────────────────────────────────────────────────────────
+help:
+  header:
+    - "&#4E5C5E&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    - "       &#FF4D4D&lNeaBans &#7F8C8Dv1.0 &#4E5C5E— &fSistema de Sanciones"
+    - "&#4E5C5E&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  entries:
+    - "  &#FFD700/neabans &f<jugador>         &#808080Abrir menú de sanciones"
+    - "  &#FFD700/ban &f<jugador> <razón>     &#808080Banear permanentemente"
+    - "  &#FFD700/tempban &f<jugador> <tiempo> <razón>  &#808080Ban temporal"
+    - "  &#FFD700/unban &f<jugador>           &#808080Desbanear jugador"
+    - "  &#FFD700/mute &f<jugador> [razón]    &#808080Silenciar permanentemente"
+    - "  &#FFD700/tempmute &f<jugador> <tiempo> [razón] &#808080Mute temporal"
+    - "  &#FFD700/unmute &f<jugador>          &#808080Quitar silencio"
+    - "  &#FFD700/kick &f<jugador> [razón]    &#808080Expulsar jugador"
+    - "  &#FFD700/warn &f<jugador> <razón>    &#808080Advertir jugador"
+    - "  &#FFD700/history &f<jugador>         &#808080Ver historial"
+    - "  &#FFD700/neabans reload              &#808080Recargar configuración"
+  footer:
+    - "&#4E5C5E&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

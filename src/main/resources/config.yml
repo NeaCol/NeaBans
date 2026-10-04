@@ -1,0 +1,489 @@
+# NeaBans v2.0 | by Nea#9654
+
+settings:
+  server-name: "Servidor"
+  appeal-link: "https://discord.gg/YcjMtCPuKH"
+  language: "es"
+  debug: false
+  kick-on-ban: true
+  notify-on-mute: true
+  broadcast-punishments: true
+  staff-only-broadcast: false
+  gui-size: 54
+  max-warns: 5
+  max-warns-action: "neabans tempban {player} 7d Máximo de advertencias alcanzado"
+  warns-count-on-revoke: true
+  punishment-cooldown: 2
+
+discord:
+  enabled: false
+  webhook-url: ""
+  bot-name: "NeaBans"
+  notify-ban: true
+  notify-tempban: true
+  notify-ipban: true
+  notify-mute: true
+  notify-tempmute: false
+  notify-kick: false
+  notify-warn: false
+  notify-unban: true
+  notify-unmute: false
+  color-ban: "FF4D4D"
+  color-tempban: "FF8C00"
+  color-ipban: "CC0000"
+  color-mute: "FFD700"
+  color-kick: "3498DB"
+  color-warn: "2ECC71"
+  color-unban: "2ECC71"
+
+database:
+  type: sqlite
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "neabans"
+    username: "root"
+    password: "password"
+    pool-size: 10
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1800000
+    ssl: false
+    table-prefix: "nb_"
+  sqlite:
+    file: "neabans.db"
+
+network:
+  enabled: false
+  channel: "neabans:sync"
+  proxy-mode: false
+  kick-on-ban-all-servers: true
+
+web:
+  enabled: false
+  port: 8080
+  bind-host: "0.0.0.0"
+  jwt-secret: ""
+  jwt-expiration-hours: 24
+
+gui:
+  filler:
+    item: BLACK_STAINED_GLASS_PANE
+    name: " "
+  close-button:
+    item: BARRIER
+    slot: 49
+  next-page:
+    item: ARROW
+    slot: 50
+  prev-page:
+    item: ARROW
+    slot: 48
+  history-button:
+    item: BOOK
+    slot: 46
+  player-head:
+    slot: 4
+  categories-rows: 5
+
+categories:
+  xray:
+    name: "&#FFD700⛏ X-Ray"
+    icon: DIAMOND_ORE
+    lore:
+      - "&#808080Uso de mods para ver minerales."
+    levels:
+      1:
+        name: "&#FFD700🗈 1ra vez: Kick + Warn"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans kick {player} X-Ray detectado (1ra vez)"
+          - "neabans warn {player} X-Ray (1ra infracción)"
+      2:
+        name: "&#FF8C00🕒 2da vez: Ban 7 días"
+        icon: IRON_INGOT
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d X-Ray reincidente"
+      3:
+        name: "&#FF4D4D⛔ 3ra vez: Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} X-Ray (reincidencia grave)"
+
+  cheats:
+    name: "&#FF4D4D⚔ Cheats / Hacks"
+    icon: NETHERITE_SWORD
+    lore:
+      - "&#808080KillAura, Fly, Speed, Macros."
+    levels:
+      1:
+        name: "&#FF8C00🕒 1ra vez: Ban 7 días"
+        icon: IRON_SWORD
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Uso de hacks"
+      2:
+        name: "&#E67E22🕒 2da vez: Ban 30 días"
+        icon: GOLDEN_SWORD
+        duration: "30d"
+        commands:
+          - "neabans tempban {player} 30d Hacks (reincidencia)"
+      3:
+        name: "&#FF4D4D⛔ Grave: Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Hacks (uso continuado)"
+
+  toxicidad:
+    name: "&#D2B4DE🗣 Toxicidad"
+    icon: WRITABLE_BOOK
+    lore:
+      - "&#808080Insultos, odio, racismo o acoso."
+    levels:
+      1:
+        name: "&#FFD700🗈 Leve: Mute 1h"
+        icon: PAPER
+        duration: "1h"
+        commands:
+          - "neabans tempmute {player} 1h Toxicidad leve"
+      2:
+        name: "&#FF8C00🕒 Grave: Mute 24h"
+        icon: BOOK
+        duration: "24h"
+        commands:
+          - "neabans tempmute {player} 24h Toxicidad grave"
+      3:
+        name: "&#FF4D4D⛔ Muy grave: Ban 7 días"
+        icon: BARRIER
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Odio/racismo/acoso grave"
+
+  flood:
+    name: "&#AED6F1🌊 Flood"
+    icon: WATER_BUCKET
+    lore:
+      - "&#808080Mensajes repetidos en el chat."
+    levels:
+      1:
+        name: "&#FFD700🗈 Warn + Mute 30min"
+        icon: PAPER
+        duration: "30m"
+        commands:
+          - "neabans warn {player} Flood en el chat"
+          - "neabans tempmute {player} 30m Flood"
+      2:
+        name: "&#FF8C00🕒 Mute 2 horas"
+        icon: BOOK
+        duration: "2h"
+        commands:
+          - "neabans tempmute {player} 2h Flood reincidente"
+      3:
+        name: "&#FF4D4D⛔ Mute 12 horas"
+        icon: BARRIER
+        duration: "12h"
+        commands:
+          - "neabans tempmute {player} 12h Flood persistente"
+
+  spam:
+    name: "&#A9DFBF📢 Spam / Publicidad"
+    icon: OAK_SIGN
+    lore:
+      - "&#808080Publicidad no autorizada."
+    levels:
+      1:
+        name: "&#FF8C00🕒 Mute 6 horas"
+        icon: PAPER
+        duration: "6h"
+        commands:
+          - "neabans tempmute {player} 6h Spam/publicidad leve"
+      2:
+        name: "&#FF4D4D⛔ Ban 3 días"
+        icon: BARRIER
+        duration: "3d"
+        commands:
+          - "neabans tempban {player} 3d Spam publicitario"
+      3:
+        name: "&#FF4D4D⛔ Reincidente: Ban 14 días"
+        icon: NETHER_BRICK
+        duration: "14d"
+        commands:
+          - "neabans tempban {player} 14d Spam publicitario reincidente"
+
+  evadir:
+    name: "&#5D6D7E🚪 Evadir Sanción"
+    icon: IRON_DOOR
+    lore:
+      - "&#808080Cuentas secundarias para evadir castigo."
+    levels:
+      1:
+        name: "&#FF4D4D⛔ Ban Permanente + IP"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Evasión de sanción (cuenta secundaria)"
+          - "neabans ipban {player} Evasión de sanción"
+
+  bugs:
+    name: "&#BB8FCE🐛 Bugs / Exploits"
+    icon: SPIDER_EYE
+    lore:
+      - "&#808080Aprovechar errores del juego."
+    levels:
+      1:
+        name: "&#FFD700🗈 Advertencia"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans warn {player} Abuso de bugs/exploits"
+      2:
+        name: "&#FF8C00🕒 Ban 14 días"
+        icon: IRON_INGOT
+        duration: "14d"
+        commands:
+          - "neabans tempban {player} 14d Abuso de exploits (reincidencia)"
+      3:
+        name: "&#FF4D4D⛔ Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Abuso grave de exploits"
+
+  suplantacion:
+    name: "&#AED6F1🎭 Suplantación"
+    icon: PLAYER_HEAD
+    lore:
+      - "&#808080Hacerse pasar por staff u otro jugador."
+    levels:
+      1:
+        name: "&#FF8C00🕒 Ban 7 días"
+        icon: IRON_INGOT
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Suplantación de identidad"
+      2:
+        name: "&#FF4D4D⛔ Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Suplantación (reincidencia)"
+
+  revision:
+    name: "&#F7DC6F🔍 Negarse a SS"
+    icon: COMPASS
+    lore:
+      - "&#808080Negarse a compartir pantalla."
+    levels:
+      1:
+        name: "&#FF4D4D⛔ Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Negarse a revisión de staff"
+
+  griefing:
+    name: "&#2ECC71🧨 Griefing"
+    icon: TNT
+    lore:
+      - "&#808080Destrucción de construcciones ajenas."
+    levels:
+      1:
+        name: "&#FFD700🗈 Advertencia"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans warn {player} Griefing leve"
+      2:
+        name: "&#FF8C00🕒 Ban 7 días"
+        icon: TNT
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Griefing grave"
+      3:
+        name: "&#FF4D4D⛔ Ban 30 días"
+        icon: BARRIER
+        duration: "30d"
+        commands:
+          - "neabans tempban {player} 30d Griefing masivo"
+
+  robo:
+    name: "&#F39C12💰 Robo"
+    icon: CHEST
+    lore:
+      - "&#808080Tomar ítems sin consentimiento."
+    levels:
+      1:
+        name: "&#FFD700🗈 Advertencia"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans warn {player} Robo de pertenencias"
+      2:
+        name: "&#FF8C00🕒 Ban 3 días"
+        icon: GOLD_INGOT
+        duration: "3d"
+        commands:
+          - "neabans tempban {player} 3d Robo grave"
+      3:
+        name: "&#FF4D4D⛔ Ban 14 días"
+        icon: BARRIER
+        duration: "14d"
+        commands:
+          - "neabans tempban {player} 14d Robo reincidente"
+
+  skin_capa:
+    name: "&#EBDEF0👕 Skin / Capa"
+    icon: LEATHER_CHESTPLATE
+    lore:
+      - "&#808080Skin u ofensivo en el personaje."
+    levels:
+      1:
+        name: "&#FFD700🗈 Kick"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans kick {player} Cambia tu skin/capa — contenido inapropiado"
+      2:
+        name: "&#FF8C00🕒 Ban 1 día"
+        icon: LEATHER_CHESTPLATE
+        duration: "1d"
+        commands:
+          - "neabans tempban {player} 1d Skin/capa inapropiada (reincidencia)"
+      3:
+        name: "&#FF4D4D⛔ Ban 7 días"
+        icon: BARRIER
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Skin/capa inapropiada (persistente)"
+
+  estafas:
+    name: "&#27AE60💎 Estafas"
+    icon: EMERALD
+    lore:
+      - "&#808080Engañar en intercambios o tradeos."
+    levels:
+      1:
+        name: "&#FF8C00🕒 Ban 3 días"
+        icon: GOLD_NUGGET
+        duration: "3d"
+        commands:
+          - "neabans tempban {player} 3d Estafa a jugadores"
+      2:
+        name: "&#FF4D4D⛔ Ban 14 días"
+        icon: DIAMOND
+        duration: "14d"
+        commands:
+          - "neabans tempban {player} 14d Estafas reincidentes"
+      3:
+        name: "&#FF4D4D⛔ Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Estafas reiteradas"
+
+  spawnkill:
+    name: "&#C0392B💀 Spawn Kill"
+    icon: WITHER_SKELETON_SKULL
+    lore:
+      - "&#808080Matar reiteradamente en spawn."
+    levels:
+      1:
+        name: "&#FFD700🗈 Advertencia"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans warn {player} Spawn kill"
+      2:
+        name: "&#FF8C00🕒 Ban 24h"
+        icon: BONE
+        duration: "24h"
+        commands:
+          - "neabans tempban {player} 24h Spawn kill reincidente"
+      3:
+        name: "&#FF4D4D⛔ Ban 7 días"
+        icon: BARRIER
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Spawn kill persistente"
+
+  doxing:
+    name: "&#E74C3C📍 Doxing"
+    icon: MAP
+    lore:
+      - "&#808080Revelar información privada."
+    levels:
+      1:
+        name: "&#FF4D4D⛔ Ban Permanente + IP"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Doxing — divulgación de información privada"
+          - "neabans ipban {player} Doxing"
+
+  amenazas:
+    name: "&#922B21🔥 Amenazas"
+    icon: REDSTONE_TORCH
+    lore:
+      - "&#808080Amenazas fuera del juego."
+    levels:
+      1:
+        name: "&#FF8C00🕒 Leve: Ban 7 días"
+        icon: REDSTONE_TORCH
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Amenazas en el servidor"
+      2:
+        name: "&#FF4D4D⛔ Grave: Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Amenazas graves"
+
+  lag:
+    name: "&#922B21⚙ Lag Machines"
+    icon: REDSTONE_BLOCK
+    lore:
+      - "&#808080Máquinas para laggear el servidor."
+    levels:
+      1:
+        name: "&#FF8C00🕒 Ban 7 días"
+        icon: REDSTONE_BLOCK
+        duration: "7d"
+        commands:
+          - "neabans tempban {player} 7d Lag machine (1ra vez)"
+      2:
+        name: "&#FF4D4D⛔ Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Lag machine reincidente"
+
+  dupe:
+    name: "&#3498DB📦 Duplicación (Dupe)"
+    icon: CHEST_MINECART
+    lore:
+      - "&#808080Duplicar ítems ilegalmente."
+    levels:
+      1:
+        name: "&#FFD700🗈 Warn + Kick"
+        icon: PAPER
+        duration: ""
+        commands:
+          - "neabans warn {player} Dupe detectado (1ra vez)"
+          - "neabans kick {player} Dupe detectado — ítems serán eliminados"
+      2:
+        name: "&#FF8C00🕒 Ban 14 días"
+        icon: CHEST
+        duration: "14d"
+        commands:
+          - "neabans tempban {player} 14d Dupe reincidente"
+      3:
+        name: "&#FF4D4D⛔ Ban Permanente"
+        icon: BARRIER
+        duration: "permanent"
+        commands:
+          - "neabans ban {player} Duplicación de ítems (ban permanente)"

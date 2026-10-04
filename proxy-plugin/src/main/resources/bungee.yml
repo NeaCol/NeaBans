@@ -1,0 +1,5 @@
+name: NeaBansProxy
+version: 2.0.0
+main: me.nea.neabans.proxy.bungee.NeaBansProxyBungee
+author: Nea#9654
+description: Plugin de proxy para NeaBans - bloqueo de bans a nivel de red

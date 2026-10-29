@@ -1,9 +1,7 @@
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#   NeaBans · lang.yml  —  Mensajes en Español
-#   Todos los textos que el plugin muestra en el servidor.
-#   Colores: &#FF4D4D rojo  |  &#FFD700 dorado  |  &#2ECC71 verde
-#            &#4E5C5E gris oscuro  |  &#808080 gris  |  &#AED6F1 azul claro
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==============================================================================
+# NeaBans - Default Language Specification (lang.yml)
+# Primary Localization & Format Palette
+# ==============================================================================
 
 # Prefijo que aparece antes de cada mensaje del plugin
 prefix: "&#FF4D4D&lNeaBans &#4E5C5E» &r"

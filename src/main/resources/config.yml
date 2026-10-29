@@ -1,4 +1,7 @@
-# NeaBans v2.0 | by Nea#9654
+# ==============================================================================
+# NeaBans - Punishment & Player Moderation System
+# Configuration Specification & Infrastructure Definitions
+# ==============================================================================
 
 settings:
   server-name: "Servidor"

@@ -367,10 +367,20 @@ public abstract class AbstractDatabase implements WebDatabase {
                 Statement.RETURN_GENERATED_KEYS
             )
         ) {
+            String playerName = punishment.getPlayerName() != null ? punishment.getPlayerName() : "Unknown";
+            String reason = punishment.getReason() != null ? punishment.getReason() : "No reason specified";
+            if (reason.length() > 512) {
+                reason = reason.substring(0, 512);
+            }
+            String serverName = punishment.getServer() != null ? punishment.getServer() : "default";
+            if (serverName.length() > 64) {
+                serverName = serverName.substring(0, 64);
+            }
+
             ps.setString(1, punishment.getPlayerUuid().toString());
-            ps.setString(2, punishment.getPlayerName());
+            ps.setString(2, playerName);
             ps.setString(3, punishment.getType().name());
-            ps.setString(4, punishment.getReason());
+            ps.setString(4, reason);
             ps.setString(5, punishment.getCategory()); // puede ser null → SQL NULL
             ps.setInt(6, punishment.getLevel());
             // staffUuid puede ser null (consola)
@@ -381,7 +391,7 @@ public abstract class AbstractDatabase implements WebDatabase {
                     : null
             );
             ps.setString(8, punishment.getStaffName());
-            ps.setString(9, punishment.getServer());
+            ps.setString(9, serverName);
             ps.setLong(10, punishment.getStartTime());
             ps.setLong(11, punishment.getEndTime());
 
